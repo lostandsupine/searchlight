@@ -1,0 +1,50 @@
+{
+    "Map/SizeTest": {
+        "height": 4300,
+        "width": 2
+    },
+    "activeFile": "swamp_map.tmx",
+    "expandedProjectPaths": [
+        "."
+    ],
+    "fileStates": {
+        "castle.tsx": {
+            "scaleInDock": 1.5,
+            "scaleInEditor": 1
+        },
+        "swamp.tsx": {
+            "scaleInDock": 1.5,
+            "scaleInEditor": 3
+        },
+        "swamp_map.tmx": {
+            "scale": 1.5,
+            "selectedLayer": 2,
+            "viewCenter": {
+                "x": 332.33333333333337,
+                "y": 239.33333333333337
+            }
+        }
+    },
+    "last.imagePath": "C:/Users/aarn/Downloads/Tileset 1",
+    "map.height": 23,
+    "map.lastUsedFormat": "tmx",
+    "map.tileHeight": 16,
+    "map.tileWidth": 16,
+    "map.width": 40,
+    "openFiles": [
+        "swamp.tsx",
+        "swamp_map.tmx",
+        "castle.tsx"
+    ],
+    "project": "tiled_map.tiled-project",
+    "recentFiles": [
+        "swamp.tsx",
+        "castle.tsx",
+        "swamp_map.tmx"
+    ],
+    "tileset.lastUsedFormat": "tsx",
+    "tileset.tileSize": {
+        "height": 16,
+        "width": 16
+    }
+}

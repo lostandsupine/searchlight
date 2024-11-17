@@ -1,0 +1,157 @@
+[gd_scene load_steps=7 format=3 uid="uid://cww12sp4jtmmg"]
+
+[ext_resource type="Script" path="res://scripts/waveComplete.gd" id="1_x56fe"]
+[ext_resource type="Texture2D" uid="uid://c8o7iloi2hnax" path="res://assets/sprites/swamp_map.png" id="2_n20xb"]
+[ext_resource type="FontFile" uid="uid://cr0doaph3sid6" path="res://assets/fonts/astro.ttf" id="3_xf83v"]
+[ext_resource type="FontFile" uid="uid://b5kcxxrjk77eq" path="res://assets/fonts/AldotheApache.ttf" id="4_5v67s"]
+[ext_resource type="Texture2D" uid="uid://np840v8plnce" path="res://assets/sprites/white_circle_soft.png" id="5_liiml"]
+[ext_resource type="AudioStream" uid="uid://nyw035egyxnv" path="res://assets/music/game_over.wav" id="6_0gcuv"]
+
+[node name="waveComplete" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_x56fe")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+modulate = Color(0.0392157, 0.0392157, 0.0392157, 1)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_n20xb")
+expand_mode = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -558.0
+offset_top = -336.0
+offset_right = 558.0
+offset_bottom = -219.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_xf83v")
+theme_override_font_sizes/font_size = 83
+text = "Wave Complete"
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Label3" type="Label" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -558.0
+offset_top = -170.0
+offset_right = 558.0
+offset_bottom = -53.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_xf83v")
+theme_override_font_sizes/font_size = 45
+text = "Choose upgrade"
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="CurrentScore" type="Label" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -328.0
+offset_top = -220.0
+offset_right = 324.0
+offset_bottom = -174.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("4_5v67s")
+theme_override_font_sizes/font_size = 20
+text = "Score: "
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="NextWave" type="Label" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -328.0
+offset_top = 205.0
+offset_right = 324.0
+offset_bottom = 251.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("4_5v67s")
+theme_override_font_sizes/font_size = 20
+text = "Next Wave:"
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="ButtonSearchlight" type="Button" parent="CanvasLayer"]
+offset_left = 321.0
+offset_top = 346.0
+offset_right = 416.0
+offset_bottom = 400.0
+toggle_mode = true
+action_mode = 0
+text = "Additional
+Searchlight"
+icon = ExtResource("5_liiml")
+
+[node name="ButtonSize" type="Button" parent="CanvasLayer"]
+offset_left = 568.0
+offset_top = 346.0
+offset_right = 767.0
+offset_bottom = 454.0
+toggle_mode = true
+action_mode = 0
+text = "Increase 
+Searchlight 
+Size"
+icon = ExtResource("5_liiml")
+
+[node name="ButtonTime" type="Button" parent="CanvasLayer"]
+offset_left = 814.0
+offset_top = 346.0
+offset_right = 1013.0
+offset_bottom = 454.0
+toggle_mode = true
+action_mode = 0
+text = "Longer 
+Searchlight
+Time"
+icon = ExtResource("5_liiml")
+
+[node name="ButtonStart" type="Button" parent="CanvasLayer"]
+offset_left = 577.0
+offset_top = 617.0
+offset_right = 710.0
+offset_bottom = 671.0
+text = "Start Next Wave"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_0gcuv")
+volume_db = -2.811
+autoplay = true
+
+[node name="MinWaitTimer" type="Timer" parent="."]
+
+[connection signal="pressed" from="CanvasLayer/ButtonSearchlight" to="." method="_on_button_searchlight_pressed"]
+[connection signal="pressed" from="CanvasLayer/ButtonSize" to="." method="_on_button_size_pressed"]
+[connection signal="pressed" from="CanvasLayer/ButtonTime" to="." method="_on_button_time_pressed"]
+[connection signal="pressed" from="CanvasLayer/ButtonStart" to="." method="_on_button_start_pressed"]
+[connection signal="timeout" from="MinWaitTimer" to="." method="_on_min_wait_timer_timeout"]

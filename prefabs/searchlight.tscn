@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://vkivm5rljdmp"]
+
+[ext_resource type="Texture2D" uid="uid://np840v8plnce" path="res://assets/sprites/white_circle_soft.png" id="1_xk1v5"]
+[ext_resource type="Script" path="res://scripts/light.gd" id="2_n7hku"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ng4hn"]
+radius = 51.0392
+
+[node name="PointLight2D" type="PointLight2D"]
+position = Vector2(511, 271)
+color = Color(0.992157, 1, 0.811765, 1)
+texture = ExtResource("1_xk1v5")
+height = 10.0
+script = ExtResource("2_n7hku")
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(-2, 2)
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(3, -2)
+shape = SubResource("CircleShape2D_ng4hn")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
